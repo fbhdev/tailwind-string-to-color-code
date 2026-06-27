@@ -1,0 +1,41 @@
+{
+  "name": "tailwind-string-to-color-code",
+  "version": "0.1.0",
+  "description": "Convert a Tailwind color name (e.g. \"blue-500\") to hex, rgba, or oklch.",
+  "author": "fbhdev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbhdev/tailwind-string-to-color-code.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "gen": "node scripts/gen-palette.mjs",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run gen && npm run build"
+  },
+  "keywords": [
+    "tailwind",
+    "color",
+    "hex",
+    "rgba",
+    "oklch"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  }
+}
