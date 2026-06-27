@@ -1,3 +1,5 @@
+![Convert tailwind string into color codes](https://raw.githubusercontent.com/fbhdev/tailwind-string-to-color-code/main/assets/og-image.png)
+
 # tailwind-string-to-color-code
 
 Convert a Tailwind color name (e.g. `blue-500`) to `hex`, `rgba`, or `oklch`.
