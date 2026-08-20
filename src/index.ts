@@ -18,12 +18,13 @@ export function tailwindColor(name: string, format: Format = "hex"): string {
   return "#" + [r, g, b].map((n) => n.toString(16).padStart(2, "0")).join("");
 }
 
-// "oklch(62.3% 0.214 259.815)" -> [L(0..1), C, H(deg)]
+// "oklch(62.3% 0.214 259.815)" -> [L(0..1), C, H(deg)]. Channels may be `none` (achromatic) -> 0.
 function parseOklch(s: string): [number, number, number] {
-  const m = s.match(/oklch\(\s*([\d.]+%?)\s+([\d.]+)\s+([\d.]+)/i);
+  const m = s.match(/oklch\(\s*([\d.]+%?|none)\s+([\d.]+|none)\s+([\d.]+|none)/i);
   if (!m) throw new Error(`Bad oklch string: ${s}`);
-  const L = m[1].endsWith("%") ? parseFloat(m[1]) / 100 : parseFloat(m[1]);
-  return [L, parseFloat(m[2]), parseFloat(m[3])];
+  const num = (v: string) => (v.toLowerCase() === "none" ? 0 : parseFloat(v));
+  const L = m[1].endsWith("%") ? num(m[1]) / 100 : num(m[1]);
+  return [L, num(m[2]), num(m[3])];
 }
 
 // OKLCH -> sRGB (0..255), via Ottosson's OKLab matrices. Clamped to gamut.

@@ -4,7 +4,7 @@
 
 Convert a Tailwind color name (e.g. `blue-500`) to `hex`, `rgba`, or `oklch`.
 
-[npm](https://www.npmjs.com/package/tailwind-string-to-color-code) · palette from **Tailwind CSS v4.3.1**
+[npm](https://www.npmjs.com/package/tailwind-string-to-color-code) · palette from **Tailwind CSS v4.3.3**
 
 ## Install
 
@@ -28,7 +28,11 @@ tailwindColor("blurple-500");       // throws: Unknown Tailwind color
 
 ## Notes
 
-- Source of truth is the **Tailwind CSS v4.3.1** palette (`tailwindcss/colors`), where
+- Source of truth is the **Tailwind CSS v4.3.3** palette (`tailwindcss/colors`), where
   colors are authored in **oklch** — so `oklch` is returned verbatim. `hex`/`rgba` are
   derived from it (sRGB, gamut-clamped). Hex values therefore match Tailwind **v4**, not v3.
+- Achromatic families (`neutral-*`, `gray-*`, `zinc-50`, `mauve-50`, ...) return an
+  omitted hue since Tailwind v4.3.3: `tailwindColor("neutral-500", "oklch")` is
+  `"oklch(55.6% 0 none)"`. `hex`/`rgba` are unaffected. Don't compare oklch strings
+  for equality; compare `hex` instead.
 - Regenerate the palette after a Tailwind bump: `npm run gen`.
