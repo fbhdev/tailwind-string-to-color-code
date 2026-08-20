@@ -13,12 +13,25 @@ describe("tailwindColor", () => {
     expect(tailwindColor("black", "hex")).toBe("#000000");
   });
 
+  it("handles achromatic `none` channels (Tailwind v4.3.3+)", () => {
+    expect(tailwindColor("neutral-500", "oklch")).toBe("oklch(55.6% 0 none)");
+    expect(tailwindColor("neutral-500", "hex")).toBe("#737373");
+  });
+
   it("derives rgba", () => {
     expect(tailwindColor("blue-500", "rgba")).toBe("rgba(43, 127, 255, 1)");
   });
 
   it("throws on unknown names", () => {
     expect(() => tailwindColor("blurple-500")).toThrow(/Unknown Tailwind color/);
+  });
+
+  it("parses every palette entry without throwing", () => {
+    // Guards the whole palette against upstream oklch format changes,
+    // which is how the `none` channel break got in.
+    for (const name of colorNames()) {
+      expect(tailwindColor(name, "hex")).toMatch(/^#[0-9a-f]{6}$/);
+    }
   });
 
   it("exposes the full name list", () => {
