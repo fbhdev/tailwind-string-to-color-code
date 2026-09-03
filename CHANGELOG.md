@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-09-03
+
+### Security
+
+- Bumped the transitive dev dependencies `nanoid` to 3.3.18 (was 3.3.15) and `postcss` to
+  8.5.27 (was 8.5.15), clearing two high-severity advisories. Both reach the project only
+  through `vitest`/`vite` and are never published, so **runtime behavior and output are
+  unchanged from v0.2.0** for consumers of this package.
+
 ## [0.2.0] - 2026-08-20
 
 ### Changed
