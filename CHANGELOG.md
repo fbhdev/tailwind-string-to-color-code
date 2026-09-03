@@ -6,14 +6,8 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [0.2.1] - 2026-09-03
 
-### Security
-
-- Bumped the transitive dev dependencies `nanoid` to 3.3.18 (was 3.3.15) and `postcss` to
-  8.5.27 (was 8.5.15), clearing two high-severity advisories. Both reach the project only
-  through `vitest`/`vite` and are never published, so **runtime behavior and output are
-  unchanged from v0.2.0** for consumers of this package.
-
-## [0.2.0] - 2026-08-20
+Supersedes 0.2.0, which was tagged but never published to npm. Everything below is
+relative to 0.1.1, the previous release on the registry.
 
 ### Changed
 
@@ -28,6 +22,13 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - `tailwindColor()` no longer throws `Bad oklch string` on achromatic colors. Every
   `neutral-*` lookup was broken against Tailwind v4.3.3 because the parser only accepted
   numeric hue channels.
+
+### Security
+
+- Bumped the transitive dev dependencies `nanoid` to 3.3.18 (was 3.3.15) and `postcss` to
+  8.5.27 (was 8.5.15), clearing two high-severity advisories. Both reach the project only
+  through `vitest`/`vite` and are excluded from the published tarball, so no consumer of
+  this package was ever exposed.
 
 ## [0.1.1] - 2026-08-19
 
