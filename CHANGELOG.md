@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] - 2026-10-15
+
+### Changed
+
+- Dev tooling only: `vitest` 4.1.9 → 5.0.4 and `typescript` 6.0.3 → 7.0.2. The published
+  `dist/` is byte-identical to 0.2.1, so there is no runtime or API change.
+
 ## [0.2.1] - 2026-09-03
 
 Supersedes 0.2.0, which was tagged but never published to npm. Everything below is

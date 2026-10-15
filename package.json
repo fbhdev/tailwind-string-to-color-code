@@ -1,6 +1,6 @@
 {
   "name": "tailwind-string-to-color-code",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Convert a Tailwind color name (e.g. \"blue-500\") to hex, rgba, or oklch.",
   "author": "fbhdev",
   "repository": {
